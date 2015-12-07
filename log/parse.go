@@ -57,14 +57,15 @@ func ParseLogItemToBuffer(tmpl interface{}, timeTmpl interface{}, data *LogItem)
 		return bytes.NewBufferString("")
 	}
 	lData := map[string]interface{}{
-		"ID":           (*data).ID,
-		"Time":         timeBuf.String(),
-		"Level":        (*data).Level.ToString(),
-		"Tag":          (*data).Tag,
-		"Message":      (*data).Message,
-		"FileName":     (*data).File.Name,
-		"FileFuncName": (*data).File.FuncName,
-		"FileLine":     (*data).File.Line,
+		"ID":            (*data).ID,
+		"Time":          timeBuf.String(),
+		"Level":         (*data).Level.ToString(),
+		"Tag":           (*data).Tag,
+		"Message":       (*data).Message,
+		"FileName":      (*data).File.Name,
+		"ShortFileName": (*data).File.ShortName,
+		"FileFuncName":  (*data).File.FuncName,
+		"FileLine":      (*data).File.Line,
 	}
 	buf, err := utils.NewParseTmpl(tmpl).Parse(lData)
 	if err != nil {

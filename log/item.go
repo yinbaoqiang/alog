@@ -31,4 +31,6 @@ type LogFile struct {
 	FuncName string
 	// Line 文件行
 	Line int
+	//文件名不包含路径
+	ShortName string
 }

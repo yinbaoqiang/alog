@@ -137,6 +137,7 @@ func (lm *_LogManage) file() log.LogFile {
 	logFile.Name = strings.TrimPrefix(file, lm.gopath)
 	logFile.Line = line
 	logFile.FuncName = utils.SubstrByStartAfter(runtime.FuncForPC(pc).Name(), "/")
+	logFile.ShortName = utils.SubstrByStartAfter(logFile.Name, "/")
 	return logFile
 }
 
